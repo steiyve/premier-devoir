@@ -25,8 +25,8 @@ int random(int high){
     // storer le nombre random dans la variable returnNum
     returnNum = rand() % (high + 1);
     
-    printf("%s\n", returnNum);
-    
+    printf("%d\n", returnNum);
+
     return returnNum;
     return 0;                           //si le code ses bien executer on retourne 0
 }
