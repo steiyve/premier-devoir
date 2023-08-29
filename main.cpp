@@ -8,10 +8,24 @@ using namespace std;
 
 int main(){
 
-    //error handeling
-    if (random(1000) != 0){
-        printf("error!, relancer le code svp");
-        return -1;
+    //variable general
+    int scrore = 0;
+
+    bool run = true;
+    while(run){
+        // appeler les fonction
+        random(1000);
+        input();
+
+        // verification pour voir qui a gagne
+        if (reponse == returnNum){
+            printf("bravo tu a gagne un point\n");
+            scrore++;
+        }
+        else{
+            printf("mauvaise reponse vous avez pas de point pour le tour\n");
+        }
     }
+
     return 0;
 }

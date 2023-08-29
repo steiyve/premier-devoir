@@ -8,11 +8,14 @@ using namespace std;
 // la fonction pose les question a l'utilisateur
 // retour:
 //  - code derreur (erro, int)
-//  - reussi (result, bool)
+//  - reponse (repose, int)
 //
 int input(){
+    
     // variable de fonction
     int reponse;
+    
+    //demandage de la question
     cout << "choisissez un chiffre en 0 et 1000: ";
     cin >> reponse;
 
