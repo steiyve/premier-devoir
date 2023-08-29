@@ -16,9 +16,9 @@ int input(){
     int reponse;
     
     //demandage de la question
-    cout << "choisissez un chiffre en 0 et 1000: ";
+    cout << "choisissez un chiffre en 0 et 1000 (entrez 1001 pour fermer le jeu): ";
     cin >> reponse;
 
-    return reponse;                     // chiffre que lutilisateur a choisi 
-    return 0;                           // si le code ne recontre pas derreur il retourne 0
+    return reponse;                                                                     // chiffre que lutilisateur a choisi 
+    return 0;                                                                           // si le code ne recontre pas derreur il retourne 0
 }

@@ -1,2 +1,5 @@
 https://www.tutorialspoint.com/c_standard_library/c_function_rand.htm
 phind.com/search?cache=fo30gnsrd1v09j9kzb9squgk
+https://stackoverflow.com/questions/17337602/how-to-get-error-message-when-ifstream-open-fails
+https://www.scaler.com/topics/string-to-int-in-cpp/
+https://cplusplus.com/doc/tutorial/files/

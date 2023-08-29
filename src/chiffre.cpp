@@ -28,6 +28,6 @@ int random(int high){
     printf("%d\n", returnNum);
 
     return returnNum;
-    return 0;                           //si le code ses bien executer on retourne 0
+    return 0;                                                                           //si le code ses bien executer on retourne 0
 }
 
