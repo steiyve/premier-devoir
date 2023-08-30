@@ -139,10 +139,10 @@ int main(){
         while (reponse == returnNum){
             // appeler les fonction
             random(1000);
-            input();
             
             //boucle qui permet d avoir 10 essai
             for (int i = 0; i < 10; i++){
+                input();
                 // verification pour voir qui a gagne
                 if (reponse == returnNum){
                     printf("bravo tu a gagne un point\n");
