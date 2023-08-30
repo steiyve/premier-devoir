@@ -111,21 +111,13 @@ int openAndGet(){
     // ouverture du fichier
     fstream f;
     f.open("best.txt", ios::in);
-    
-    if (f.fail()){
-        cerr << "Error: " << stderr << "\n";
-        cout << "erreur durant la louvetrrture du fichier\n";
-        return -1;                                                                      // retourne -1 si il y a une erreur dans l'ouverture/fermeture du fichier
-    }
 
     // lecture du fichier
     while (getline(f, line)){
         cout << line << "\n";
     }
 
-	
-	string num1 = line;
-	loaded_score = stoi(num1);
+	loaded_score = stoi(line);
 	
     // fermeture du fichier
     f.close();
@@ -142,46 +134,54 @@ int main(){
     int scrore = 0;
     int best_score;
 
-    // aller cherchez le meilleur score
-    // gestion d'erreur
-    openAndGet();
-    best_score = loaded_score;
-    cout << best_score << "\n";
-
-    
-
-
-    while(reponse == returnNum){
-        // appeler les fonction
-        random(1000);
-        input();
+    // boucle principale du code
+    bool quit = false;
+    while (quit != true){
         
+        // aller cherchez le meilleur score
+        openAndGet();
+        best_score = loaded_score;
+        cout << best_score << "\n";
+        while (reponse == returnNum){
+            // appeler les fonction
+            random(1000);
+            input();
+            
 
-        // verification pour voir qui a gagne
+            // verification pour voir qui a gagne
 
-        if (reponse == returnNum){
-            printf("bravo tu a gagne un point\n");
-            scrore++;
-			cout << scrore << "\n";
+            if (reponse == returnNum){
+                printf("bravo tu a gagne un point\n");
+                scrore++;
+                cout << scrore << "\n";
+            }
+
+
+            // mauvaise reponse
+            else{
+                printf("mauvaise reponse vous avez pas de point pour le tour\n");
+            }
+
+            // verifier si score > bestScore
+            if (scrore >= best_score){
+                best_score = scrore;
+                cout << best_score << "\n";
+            }
         }
 
+        // sauvegarde du high score
+        cout << best_score << "\n";
+        string str_to_save = to_string(best_score);
+        save(str_to_save);
 
-        // mauvaise reponse
-        else{
-            printf("mauvaise reponse vous avez pas de point pour le tour\n");
-        }
-
-        // verifier si score > bestScore
-        if (scrore >= best_score){
-            best_score = scrore;
-            cout << best_score << "\n";
+        // voir si lutilisateur veux recommencer
+        string restart;
+        cout << "voulez vous recommencer une partie (oui ou non):";
+        cin >> restart;
+        if (restart == "non"){
+            quit = true;
         }
     }
-
-    cout << best_score << "\n";
-	string str_to_save = to_string(best_score);
-    // gestion des erreur de la sauvegarde de fichier
-    save(str_to_save);
 
     return 0;
 }
