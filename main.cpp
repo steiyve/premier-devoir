@@ -146,7 +146,7 @@ int main(){
                 // verification pour voir qui a gagne
                 if (reponse == returnNum){
                     printf("bravo tu a gagne un point\n");
-                    scrore++;
+                    scrore = 10 - i;
                     cout << scrore << "\n";
                     break;
                 }
