@@ -141,19 +141,29 @@ int main(){
             random(1000);
             input();
             
+            //boucle qui permet d avoir 10 essai
+            for (int i = 0; i < 10; i++){
+                // verification pour voir qui a gagne
+                if (reponse == returnNum){
+                    printf("bravo tu a gagne un point\n");
+                    scrore++;
+                    cout << scrore << "\n";
+                    break;
+                }
 
-            // verification pour voir qui a gagne
 
-            if (reponse == returnNum){
-                printf("bravo tu a gagne un point\n");
-                scrore++;
-                cout << scrore << "\n";
-            }
+                // mauvaise reponse
+                else{
+                    // si le nombre choisi est plus petit
+                    if (reponse < returnNum){
+                        printf("choississez un nombre plus grand\n");
+                    }
 
-
-            // mauvaise reponse
-            else{
-                printf("mauvaise reponse vous avez pas de point pour le tour\n");
+                    // si le nombre choisi est plus grand
+                    if (reponse > returnNum){
+                        printf("choississez un nombre plus petit\n");
+                    }
+                }
             }
 
             // verifier si score > bestScore
