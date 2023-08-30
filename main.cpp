@@ -11,8 +11,8 @@ using namespace std;
 
 //variable de programe
 int loaded_score;
-string reponse;
-string returnNum;
+int reponse;
+int returnNum;
 
 //
 // la fonction pose les question a l'utilisateur
@@ -56,7 +56,6 @@ int random(int high){
     
     printf("%d\n", returnNum);
 
-    returnNum = to_string(num);
     return returnNum;
     return 0;                                                                           //si le code ses bien executer on retourne 0
 }
@@ -72,7 +71,7 @@ int random(int high){
 // retour:
 //  - code d'erruer (erro, int)
 //
-int save(int bestScore){
+int save(string bestScore){
 
     cout << bestScore << "\n";
 
@@ -81,7 +80,7 @@ int save(int bestScore){
 
     // ouverture du fichier avec fstream
     fstream monFichier;
-    monFichier.open(fileName, ios::app);
+    monFichier.open(fileName, ios::out | ios::trunc);
     
 
     //sauver la valeur dans le fichier
@@ -124,7 +123,10 @@ int openAndGet(){
         cout << line << "\n";
     }
 
-
+	
+	string num1 = line;
+	loaded_score = stoi(num1);
+	
     // fermeture du fichier
     f.close();
     
@@ -160,6 +162,7 @@ int main(){
         if (reponse == returnNum){
             printf("bravo tu a gagne un point\n");
             scrore++;
+			cout << scrore << "\n";
         }
 
 
@@ -176,8 +179,9 @@ int main(){
     }
 
     cout << best_score << "\n";
+	string str_to_save = to_string(best_score);
     // gestion des erreur de la sauvegarde de fichier
-    save(best_score);
+    save(str_to_save);
 
     return 0;
 }
