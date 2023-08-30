@@ -22,7 +22,6 @@ int returnNum;
 //
 int input(){
     
-
     //demandage de la question
     cout << "choisissez un chiffre en 0 et 1000 (entrez 1001 pour fermer le jeu): ";
     cin >> reponse;
@@ -42,9 +41,7 @@ int input(){
 //
 int random(int high){
 
-
     //variable requise au bon fonctionement de la fonction
-
     int num;
     time_t t;
 
@@ -53,8 +50,6 @@ int random(int high){
 
     // storer le nombre random dans la variable returnNum
     returnNum = rand() % (high + 1);
-    
-    printf("%d\n", returnNum);
 
     return returnNum;
     return 0;                                                                           //si le code ses bien executer on retourne 0
@@ -117,13 +112,12 @@ int openAndGet(){
         cout << line << "\n";
     }
 
-	loaded_score = stoi(line);
+    // transformation du contenu du fichier string a int
+    loaded_score = stoi(line);
 	
     // fermeture du fichier
     f.close();
     
-
-    cout << loaded_score << "\n";
     return loaded_score;
     return 0;                                                                           // retourne 0 si la fonction fut executer sans erreur
 }
