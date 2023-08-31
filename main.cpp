@@ -126,7 +126,8 @@ int main(){
     int scrore = 0;
     int best_score;
     int repete = 0;
-
+	bool streak = true;
+	
     // boucle principale du code
     bool quit = false;
     while (quit != true){
@@ -135,65 +136,62 @@ int main(){
         openAndGet();
         best_score = loaded_score;
         cout << best_score << "\n";
-        
-	//premier essai
-	random(1000);
-	input();
+		
+		while (streak){
+			//premier essai
+			random(1000);
+			input();
+		
+			repete = 0;
+			//boucle tant que reponse != return_num
+			while (repete <= 10){
+				
+				// verification pour voir qui a gagne
+				if (reponse == returnNum){
+					printf("bravo tu a gagne un point\n");
+					scrore = 10 - repete;
+					cout << scrore << "\n";
+					break;
+				}
+	
+	
+				// mauvaise reponse
+				else{
+					// si le nombre choisi est plus petit
+					if (reponse < returnNum){
+						printf("choississez un nombre plus grand\n");
+					}
+	
+					// si le nombre choisi est plus grand
+					if (reponse > returnNum){
+						printf("choississez un nombre plus petit\n");
+					}
+				}
+		            
+			    cout << repete << "\n";
+		
+			    //reposer la question
+			    input();
+				repete++;
 
-	//boucle tant que reponse != return_num
-	while (reponse != returnNum){
-
-	    //variable de boucle
-	    repete = 0;
-
-            // appeler les fonction
-            random(1000);
-            input();
-            // verification pour voir qui a gagne
-            if (reponse == returnNum){
-                printf("bravo tu a gagne un point\n");
-                scrore = 10 - repete;
-                cout << scrore << "\n";
-                break;
-            }
-
-
-            // mauvaise reponse
-            else{
-                // si le nombre choisi est plus petit
-                if (reponse < returnNum){
-                    printf("choississez un nombre plus grand\n");
-                }
-
-                // si le nombre choisi est plus grand
-                if (reponse > returnNum){
-                    printf("choississez un nombre plus petit\n");
-                }
-            }
-            
-	    cout << repete << "\n";
-
-            // verifier si repet(essai) >= 10
-	    if (repete >= 10) {
-                break;
-	    }
-
-	    //reposer la question
-	    input();
-        }
-
-        // sauvegarde du high score
-        cout << best_score << "\n";
-        string str_to_save = to_string(best_score);
-        save(str_to_save);
-
-        // voir si lutilisateur veux recommencer
-        string restart;
-        cout << "voulez vous recommencer une partie (oui ou non):";
-        cin >> restart;
-        if (restart == "non"){
-            quit = true;
-        }
+				if (repete >= 10){
+					streak = false;
+					break;
+				}
+			}
+		}
+		// voir si lutilisateur veux recommencer
+		string restart;
+		cout << "voulez vous recommencer une partie (oui ou non):";
+		cin >> restart;
+		if (restart == "non"){
+			quit = true;
+		}
+		
+		// sauvegarde du high score
+		cout << best_score << "\n";
+		string str_to_save = to_string(best_score);
+		save(str_to_save);
     }
 
     return 0;
