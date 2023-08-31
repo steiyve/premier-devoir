@@ -4,3 +4,5 @@ https://stackoverflow.com/questions/17337602/how-to-get-error-message-when-ifstr
 https://www.scaler.com/topics/string-to-int-in-cpp/
 https://cplusplus.com/doc/tutorial/files/
 https://www.simplilearn.com/tutorials/cpp-tutorial/int-to-string-cpp#:~:text=In%20C%2B%2B%2C%20you%20can,std%3A%3Ato_string(num)%3B
+https://www.geeksforgeeks.org/reading-writing-text-files-python/
+https://www.w3schools.com/python/ref_string_isdigit.asp
