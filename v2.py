@@ -6,6 +6,22 @@ score = 0
 best_score = 0
 run = True
 
+#fonction qui pose la question
+def question():
+    #variable de la fonction
+    err = True
+
+    #error handeling
+    while err:
+        try:
+            reponse = int(intput("entrez un nombre de 0 a 1000:"))
+            err = False
+        
+        #si il y a une erreur
+        except:
+            print("entrez un nombre valide")
+            err = True
+
 #boucle principale
 while quit != True:
     
@@ -24,11 +40,10 @@ while quit != True:
         #variable de boucle
         chiffre = random.randint(0, 1000)
         repete = 0
-        reponse = int(input("entrez un chiffre entre 0 et 1000:"))
+        question()
         
         #boucle qui permet d avoir 10 essai
         while repete <= 10:
-            print("hallo")
             print(repete)
             # verification pour voir qui a gagne
             if (reponse == chiffre):
@@ -48,7 +63,7 @@ while quit != True:
                 if (reponse > chiffre):
                     print("choississez un nombre plus petit")
             
-            reponse = int(input("entrez un chiffre entre 0 et 1000:"))
+            question()
             repete += 1
 
     if score == best_score:
