@@ -137,8 +137,8 @@ int main(){
         cout << best_score << "\n";
         
 	//premier essai
-	random(1000)
-	input()
+	random(1000);
+	input();
 
 	//boucle tant que reponse != return_num
 	while (reponse != returnNum){
