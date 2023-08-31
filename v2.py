@@ -5,22 +5,21 @@ quit = False
 score = 0
 best_score = 0
 run = True
+reponse = 0
 
 #fonction qui pose la question
 def question():
-    #variable de la fonction
-    err = True
+    global reponse
 
-    #error handeling
-    while err:
-        try:
-            reponse = int(intput("entrez un nombre de 0 a 1000:"))
-            err = False
-        
-        #si il y a une erreur
-        except:
-            print("entrez un nombre valide")
-            err = True
+    #poser la question 
+    essai = input("entrez un nombre entre 0 et 1000: ")
+
+    #boucle qui pose la question si repones nes pas un chiffre valide
+    while (not essai.isdigit()):
+        essai = input("un chiffre valide: ")
+
+    #transformer la reponse en chiffre valide
+    reponse = int(essai)
 
 #boucle principale
 while quit != True:

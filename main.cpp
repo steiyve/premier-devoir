@@ -82,9 +82,7 @@ int save(string bestScore){
     monFichier << bestScore;
     
     // fermer le fichier
-    monFichier.close();
-    
-   
+    monFichier.close();   
 
     return 0;                                                                           // retourne 0 si la fonction fut executer sans erreur
 }
@@ -114,7 +112,7 @@ int openAndGet(){
 
     // transformation du contenu du fichier string a int
     loaded_score = stoi(line);
-	
+
     // fermeture du fichier
     f.close();
     
@@ -127,6 +125,7 @@ int main(){
     // variable general
     int scrore = 0;
     int best_score;
+    int repete = 0;
 
     // boucle principale du code
     bool quit = false;
@@ -136,41 +135,51 @@ int main(){
         openAndGet();
         best_score = loaded_score;
         cout << best_score << "\n";
-        while (reponse == returnNum){
+        
+	//premier essai
+	random(1000)
+	input()
+
+	//boucle tant que reponse != return_num
+	while (reponse != returnNum){
+
+	    //variable de boucle
+	    repete = 0;
+
             // appeler les fonction
             random(1000);
+            input();
+            // verification pour voir qui a gagne
+            if (reponse == returnNum){
+                printf("bravo tu a gagne un point\n");
+                scrore = 10 - i;
+                cout << scrore << "\n";
+                break;
+            }
+
+
+            // mauvaise reponse
+            else{
+                // si le nombre choisi est plus petit
+                if (reponse < returnNum){
+                    printf("choississez un nombre plus grand\n");
+                }
+
+                // si le nombre choisi est plus grand
+                if (reponse > returnNum){
+                    printf("choississez un nombre plus petit\n");
+                }
+            }
             
-            //boucle qui permet d avoir 10 essai
-            for (int i = 0; i < 10; i++){
-                input();
-                // verification pour voir qui a gagne
-                if (reponse == returnNum){
-                    printf("bravo tu a gagne un point\n");
-                    scrore = 10 - i;
-                    cout << scrore << "\n";
-                    break;
-                }
+	    cout << repet << "\n";
 
+            // verifier si repet(essai) >= 10
+	    if (repet >= 10) {
+                break;
+	    }
 
-                // mauvaise reponse
-                else{
-                    // si le nombre choisi est plus petit
-                    if (reponse < returnNum){
-                        printf("choississez un nombre plus grand\n");
-                    }
-
-                    // si le nombre choisi est plus grand
-                    if (reponse > returnNum){
-                        printf("choississez un nombre plus petit\n");
-                    }
-                }
-            }
-
-            // verifier si score > bestScore
-            if (scrore >= best_score){
-                best_score = scrore;
-                cout << best_score << "\n";
-            }
+	    //reposer la question
+	    input();
         }
 
         // sauvegarde du high score
