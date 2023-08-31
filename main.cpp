@@ -174,7 +174,7 @@ int main(){
 	    cout << repete << "\n";
 
             // verifier si repet(essai) >= 10
-	    if (repet >= 10) {
+	    if (repete >= 10) {
                 break;
 	    }
 
