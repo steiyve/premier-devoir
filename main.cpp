@@ -152,7 +152,7 @@ int main(){
             // verification pour voir qui a gagne
             if (reponse == returnNum){
                 printf("bravo tu a gagne un point\n");
-                scrore = 10 - i;
+                scrore = 10 - repete;
                 cout << scrore << "\n";
                 break;
             }
@@ -171,7 +171,7 @@ int main(){
                 }
             }
             
-	    cout << repet << "\n";
+	    cout << repete << "\n";
 
             // verifier si repet(essai) >= 10
 	    if (repet >= 10) {
