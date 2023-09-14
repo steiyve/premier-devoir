@@ -31,7 +31,7 @@ def question():
 
 # boucle principale
 
-while quit != True:
+while quit  False:
 
     # varialbe de la boucle
 
